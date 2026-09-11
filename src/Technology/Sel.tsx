@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Idata } from '../TYpe/Type';
-import { X } from 'lucide';
+// import { X } from 'lucide';
 import { toast } from 'react-toastify';
 
 const Sel = ({ selected, setSelected }: { selected: Idata[], setSelected: React.Dispatch<React.SetStateAction<Idata[]>> }) => {
@@ -20,7 +20,7 @@ const Sel = ({ selected, setSelected }: { selected: Idata[], setSelected: React.
             <div className="space-y-2">
                 {
                     selected.map((data: Idata, ind: number) =>
-                        <div className="card w-full border border-slate-200 bg-white shadow-sm">
+                        <div key={ind} className="card w-full border border-slate-200 bg-white shadow-sm">
                             <div className="card-body flex-row items-center justify-between p-4">
 
                                 {/* Left: Icon + Details */}

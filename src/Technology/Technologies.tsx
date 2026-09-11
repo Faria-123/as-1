@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import { use, useState } from 'react';
 import type { Idata } from '../TYpe/Type';
 import Explore from './Explore';
 import Stack from './Stack';

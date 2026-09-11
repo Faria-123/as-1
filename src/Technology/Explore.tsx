@@ -19,9 +19,9 @@ const Explore = ({ data, selected, setSelected }: ExploreProps) => {
         badge,
     } = data;
     const isSelected = selected.some((item) => item.id === data.id);
-    let [btnState, setBtnState] = useState<string>("Add to Stack");
-    const handleBtn = (type: string) => {
-        setBtnState(type);
+    // let [btnState, setBtnState] = useState<string>("Add to Stack");
+    const handleBtn = () => {
+
         toast.success("Added to Stack");
         const newselected = [...selected, data];
         setSelected(newselected);
