@@ -1,10 +1,10 @@
 import React from "react";
-import { Layers3 } from "lucide-react";
+// import { Layers3 } from "lucide-react";
 
-const YourStack = () => {
+const Stack = () => {
     return (
         <div className="card w-full max-w-md border border-slate-100 bg-white shadow-sm">
-            <div className="card-body p-5">
+            <div className="card-body p-7">
 
                 {/* Header */}
                 <div>
@@ -20,7 +20,7 @@ const YourStack = () => {
                 {/* Empty State */}
                 <div className="mt-3 flex min-h-[100px] flex-col items-center justify-center rounded-lg border border-dashed border-slate-200 bg-slate-50/30 px-4 py-5">
 
-                    <Layers3 className="mb-2 h-6 w-6 text-slate-200" />
+                    {/* <Layers3 className="mb-2 h-6 w-6 text-slate-200" /> */}
 
                     <p className="text-xs text-slate-300">
                         Your stack is empty.
@@ -33,4 +33,4 @@ const YourStack = () => {
     );
 };
 
-export default YourStack;
+export default Stack;
