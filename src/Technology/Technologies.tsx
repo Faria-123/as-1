@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import type { Idata } from '../TYpe/Type';
 import Explore from './Explore';
 import Stack from './Stack';
@@ -8,6 +8,7 @@ interface dataprop {
 const Technologies = ({ data }: { data: dataprop }) => {
     const datas: Idata[] = use(data);
     console.log(datas);
+    const [selected, setSelected] = useState<Idata[]>([]);
     return (
         <div className="container mx-auto ">
             <div className="space-y-2 mb-7"><h1 className='text-[2.1rem] font-extrabold'>Explore the <span className="gradient-txt">Technologies</span>
@@ -16,11 +17,10 @@ const Technologies = ({ data }: { data: dataprop }) => {
             </div>
             <div className="flex gap-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {datas.map((data: Idata, ind: number) => <Explore key={ind} data={data}></Explore>)}
+                    {datas.map((data: Idata, ind: number) => <Explore key={ind} data={data} selected={selected} setSelected={setSelected} ></Explore>)}
                 </div>
                 <div>
-                    <Stack></Stack>
-
+                    <Stack selected={selected} setSelected={setSelected}></Stack>
                 </div>
             </div>
         </div>

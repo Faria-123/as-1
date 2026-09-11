@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Idata } from '../TYpe/Type';
+import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify/unstyled';
+// import { toast } from 'react-toastify';
 interface ExploreProps {
     data: Idata;
+    selected: Idata[];
+    setSelected: React.Dispatch<React.SetStateAction<Idata[]>>;
 }
-const Explore = ({ data }: ExploreProps) => {
+const Explore = ({ data, selected, setSelected }: ExploreProps) => {
     const {
         name,
         category,
@@ -13,6 +18,13 @@ const Explore = ({ data }: ExploreProps) => {
         difficulty,
         badge,
     } = data;
+    let [btnState, setBtnState] = useState<string>("Add to Stack");
+    const handleBtn = (type: string) => {
+        setBtnState(type);
+        toast.success("Added to Stack");
+        const newselected = [...selected, data];
+        setSelected(newselected);
+    }
     return (
         <div>
             <div className="card w-full max-w-sm border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
@@ -64,11 +76,13 @@ const Explore = ({ data }: ExploreProps) => {
 
                     {/* Add Button */}
                     <button
-                        onClick={() => onAddToStack?.(technology)}
+                        onClick={() => handleBtn("Added to Stack")}
                         className="btn mt-4 min-h-8 h-8 w-full rounded-lg border-0 bg-slate-950 text-xs font-medium text-white hover:bg-slate-800"
+                        disabled={btnState === "Added to Stack"}
                     >
-                        + Add to Stack
+                        {btnState === "Added to Stack" ? "Added to Stack" : "Add to Stack"}
                     </button>
+
 
                 </div>
             </div>
