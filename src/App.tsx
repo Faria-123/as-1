@@ -13,6 +13,7 @@ const dataa = async (): Promise<Idata> => {
 function App() {
   const data = dataa();
   // console.log(data);
+
   return (
     <>
       <Nav></Nav>

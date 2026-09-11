@@ -24,6 +24,7 @@ const Explore = ({ data, selected, setSelected }: ExploreProps) => {
         toast.success("Added to Stack");
         const newselected = [...selected, data];
         setSelected(newselected);
+
     }
     return (
         <div>
