@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Idata } from '../TYpe/Type';
 import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify/unstyled';
