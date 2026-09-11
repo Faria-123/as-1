@@ -1,10 +1,10 @@
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 import Nav from './Components/Nav'
 import Banner from './Components/Banner'
 import Technologies from './Technology/Technologies'
 import type { Idata } from './TYpe/Type'
 import Footer from './Components/Footer'
-const dataa = async (): Promise<Idata> => {
+const dataa = async (): Promise<Idata[]> => {
   const res = await fetch('/data.json')
   const datas = await res.json()
   return datas;

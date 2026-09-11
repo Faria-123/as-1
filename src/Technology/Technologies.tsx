@@ -5,7 +5,7 @@ import Stack from './Stack';
 interface dataprop {
     data: Promise<Idata[]>
 }
-const Technologies = ({ data }: { data: dataprop }) => {
+const Technologies = ({ data }: dataprop) => {
     const datas: Idata[] = use(data);
     console.log(datas);
     const [selected, setSelected] = useState<Idata[]>([]);
