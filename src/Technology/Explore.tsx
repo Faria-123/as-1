@@ -18,6 +18,7 @@ const Explore = ({ data, selected, setSelected }: ExploreProps) => {
         difficulty,
         badge,
     } = data;
+    const isSelected = selected.some((item) => item.id === data.id);
     let [btnState, setBtnState] = useState<string>("Add to Stack");
     const handleBtn = (type: string) => {
         setBtnState(type);
@@ -28,7 +29,7 @@ const Explore = ({ data, selected, setSelected }: ExploreProps) => {
     }
     return (
         <div>
-            <div className="card w-full max-w-sm border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+            <div className={`card w-full max-w-sm ${isSelected ? 'border border-purple-500' : 'bg-white'} shadow-sm transition hover:-translate-y-1 hover:shadow-md`}>
                 <div className="card-body p-5">
 
                     {/* Top: Icon + Badge */}
@@ -76,12 +77,21 @@ const Explore = ({ data, selected, setSelected }: ExploreProps) => {
                     </div>
 
                     {/* Add Button */}
-                    <button
+                    {/* <button
                         onClick={() => handleBtn("Added to Stack")}
                         className="btn mt-4 min-h-8 h-8 w-full rounded-lg border-0 bg-slate-950 text-xs font-medium text-white hover:bg-slate-800"
                         disabled={btnState === "Added to Stack"}
                     >
                         {btnState === "Added to Stack" ? "Added to Stack" : "Add to Stack"}
+                    </button> */}
+
+                    <button
+                        onClick={handleBtn}
+                        className={`btn mt-4 h-8 min-h-8 w-full rounded-lg  bg-slate-950 text-xs font-medium  hover:bg-slate-800 ${isSelected ? 'border border-red-500 text-red-500 bg-transparent' : 'text-white'}`}
+                        disabled={isSelected}
+                    >
+
+                        {isSelected ? "Added to Stack" : "Add to Stack"}
                     </button>
 
 

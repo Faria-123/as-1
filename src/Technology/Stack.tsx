@@ -14,9 +14,13 @@ const Stack = ({ selected, setSelected }: { selected: Idata[], setSelected: Reac
                         Your Stack
                     </h2>
 
-                    <p className="mt-1 text-xs text-slate-400">
-                        No technologies selected yet.
-                    </p>
+                    {
+                        selected.length === 0 ? <p className="mt-1 text-xs text-slate-400">
+                            No technologies selected yet.
+                        </p> : <p className="mt-1 text-xs text-slate-400">
+                            {selected.length} technologyies selected.
+                        </p>
+                    }
                 </div>
 
                 {/* Empty State */}
